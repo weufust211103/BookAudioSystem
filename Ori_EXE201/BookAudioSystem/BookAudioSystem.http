@@ -1,0 +1,6 @@
+@BookAudioSystem_HostAddress = http://localhost:5267
+
+GET {{BookAudioSystem_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
