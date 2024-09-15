@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\project\\Ori_EXE201\\BookAudioSystem\\BookAudioSystem.csproj": {}
+    "E:\\project\\BookAudioSystem\\Ori_EXE201\\BookAudioSystem\\BookAudioSystem.csproj": {}
   },
   "projects": {
-    "E:\\project\\Ori_EXE201\\BookAudioSystem\\BookAudioSystem.csproj": {
+    "E:\\project\\BookAudioSystem\\Ori_EXE201\\BookAudioSystem\\BookAudioSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\project\\Ori_EXE201\\BookAudioSystem\\BookAudioSystem.csproj",
+        "projectUniqueName": "E:\\project\\BookAudioSystem\\Ori_EXE201\\BookAudioSystem\\BookAudioSystem.csproj",
         "projectName": "BookAudioSystem",
-        "projectPath": "E:\\project\\Ori_EXE201\\BookAudioSystem\\BookAudioSystem.csproj",
+        "projectPath": "E:\\project\\BookAudioSystem\\Ori_EXE201\\BookAudioSystem\\BookAudioSystem.csproj",
         "packagesPath": "C:\\Users\\weufu\\.nuget\\packages\\",
-        "outputPath": "E:\\project\\Ori_EXE201\\BookAudioSystem\\obj\\",
+        "outputPath": "E:\\project\\BookAudioSystem\\Ori_EXE201\\BookAudioSystem\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "E:\\Shared\\NuGetPackages"

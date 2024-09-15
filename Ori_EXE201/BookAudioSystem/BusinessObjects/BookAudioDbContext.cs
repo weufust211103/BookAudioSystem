@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using BookAudioSystem.BusinessObjects.Entities;
+using System.Text;
+using System.Security.Cryptography;
 namespace BookAudioSystem.BusinessObjects
 {
     public class BookAudioDbContext: DbContext
@@ -21,6 +23,22 @@ namespace BookAudioSystem.BusinessObjects
                         .HasForeignKey(a => a.BookId);
 
             // Additional configurations can go here
+            // Hash the password (example with SHA256, you should use a stronger hash and salt)
+            string password = "SuperAdminPassword";
+            string passwordHash = BCrypt.Net.BCrypt.HashPassword(password);
+            
+
+                // Seed the SuperAdmin
+                modelBuilder.Entity<User>().HasData(
+                    new User
+                    {
+                        UserId = 1, // Ensure this Id doesn't conflict with existing data
+                        Username = "superadmin",
+                        Email = "superadmin@example.com",
+                        PasswordHash = passwordHash, // Store the hashed password
+                        Role = "SuperAdmin"
+                    });
+            
         }
     }
 }

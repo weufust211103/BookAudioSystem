@@ -3,6 +3,7 @@ using System;
 using BookAudioSystem.BusinessObjects;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace BookAudioSystem.Migrations
 {
     [DbContext(typeof(BookAudioDbContext))]
-    partial class BookAudioDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240915135359_add_migration_ver2")]
+    partial class add_migration_ver2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -104,7 +107,7 @@ namespace BookAudioSystem.Migrations
                         {
                             UserId = 1,
                             Email = "superadmin@example.com",
-                            PasswordHash = "$2a$11$b2ThHxOhb1JD/Er7KWmMiOKwjFRuuDcBCke0CEKYpzBd4.1bxFzL2",
+                            PasswordHash = "+dwF6bayal0rgck0HsNQ06FCtKmlF+pkO/Nh3BU7JhA=",
                             Role = "SuperAdmin",
                             Username = "superadmin"
                         });
