@@ -1,7 +1,10 @@
-﻿namespace BookAudioSystem.Services.IService
+﻿using RentalBook.BusinessObjects.Models;
+
+namespace BookAudioSystem.Services.IService
 {
     public interface IUserService
     {
-        string GetEmailByUsername(string username);
+        Task<UserResponseDto> RegisterAsync(RegisterModel registrationDto);
+        Task<UserResponseDto> LoginAsync(LoginModel loginDto);
     }
 }

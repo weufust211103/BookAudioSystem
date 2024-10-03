@@ -4,6 +4,9 @@ namespace BookAudioSystem.Repositories.IRepositories
 {
     public interface IUserRepository
     {
-        User GetUserByUsername(string username);
+        Task<User> GetUserByEmailAsync(string email);
+        Task<Role> GetRoleByNameAsync(string roleName);
+        Task AddUserAsync(User user);
+        Task AddUserRoleAsync(UserRole userRole);
     }
 }

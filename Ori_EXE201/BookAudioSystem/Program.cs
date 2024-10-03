@@ -8,14 +8,16 @@ using Microsoft.OpenApi.Models;
 using System.Text;
 using BookAudioSystem.Repositories.IRepositories;
 using BookAudioSystem.Repositories;
+using BookAudioSystem.Helper;
 
 var builder = WebApplication.CreateBuilder(args);
 var jwtSettings = builder.Configuration.GetSection("JwtSettings");
-
+AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 // Add services to the container.
-builder.Services.AddDbContext<BookAudioDbContext>(options =>
+builder.Services.AddDbContext<RentalBookDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+builder.Services.AddScoped<JWTTokenHelper>();
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
