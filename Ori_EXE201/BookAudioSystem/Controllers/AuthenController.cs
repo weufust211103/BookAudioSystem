@@ -1,6 +1,10 @@
-﻿using BookAudioSystem.Services.IService;
+﻿using BookAudioSystem.BusinessObjects.Models;
+using BookAudioSystem.Repositories.IRepositories;
+using BookAudioSystem.Services.IService;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RentalBook.BusinessObjects.Models;
+using System.Security.Claims;
 
 namespace BookAudioSystem.Controllers
 {
@@ -56,5 +60,31 @@ namespace BookAudioSystem.Controllers
                 return Unauthorized(new { message = ex.Message });
             }
         }
+
+        [HttpGet("me")]
+        public async Task<ActionResult<UserResDto>> GetUserInfo()
+        {
+            // Extract the email from the JWT token claims
+            var emailClaim = User.FindFirst(ClaimTypes.Email);
+
+            if (emailClaim == null)
+            {
+                return Unauthorized();
+            }
+
+            var email = emailClaim.Value;
+
+            // Use the service to retrieve the user info by email
+            var userInfo = await _userService.GetUserInfoByEmailAsync(email);
+
+            if (userInfo == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(userInfo);
+        }
+
     }
 }
+

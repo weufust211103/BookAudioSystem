@@ -1,7 +1,12 @@
-﻿namespace BookAudioSystem.BusinessObjects.Entities
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
+
+namespace BookAudioSystem.BusinessObjects.Entities
 {
     public class User
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)] // Ensure that UserID is auto-generated
         public int UserID { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }

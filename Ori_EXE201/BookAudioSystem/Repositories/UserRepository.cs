@@ -28,6 +28,11 @@ namespace BookAudioSystem.Repositories
             await _context.SaveChangesAsync();
         }
 
+        public async Task<User> GetUserByIdAsync(int id)
+        {
+            return await _context.Users.FirstOrDefaultAsync(u => u.UserID == id);
+        }
+
         public async Task AddUserAsync(User user)
         {
             await _context.Users.AddAsync(user);

@@ -1,4 +1,5 @@
 ﻿using BookAudioSystem.BusinessObjects.Entities;
+using BookAudioSystem.BusinessObjects.Models;
 using BookAudioSystem.Helper;
 using BookAudioSystem.Repositories.IRepositories;
 using BookAudioSystem.Services.IService;
@@ -22,7 +23,7 @@ namespace BookAudioSystem.Services
             var existingUser = await _userRepository.GetUserByEmailAsync(registrationDto.Email);
             if (existingUser != null)
             {
-                throw new Exception("User already exists.");
+                throw new Exception("User already exists with this email.");
             }
 
             var user = new User
@@ -31,14 +32,16 @@ namespace BookAudioSystem.Services
                 Password = PasswordHasher.HashPassword(registrationDto.Password),
                 FullName = registrationDto.FullName,
                 createdDate = DateTime.UtcNow,
-                Address=registrationDto.Address,
-                BankAccountNumber=registrationDto.BankAccountNumber,
-                Province=registrationDto.Province,
-                PhoneNumber=registrationDto.PhoneNumber,
-                birthDate=registrationDto.BirthDate,
-                BankName=registrationDto.BankName,
-                District=registrationDto.District,
-                
+                Address = registrationDto.Address,
+                BankAccountNumber = registrationDto.BankAccountNumber,
+                Province = registrationDto.Province,
+                PhoneNumber = registrationDto.PhoneNumber,
+                birthDate = registrationDto.BirthDate,
+                BankName = registrationDto.BankName,
+                District = registrationDto.District,
+                IdentityCard = registrationDto.IdentityCard,
+                Ward = registrationDto.Ward,
+                Token = "default-token",
             };
             // Retrieve the "Renter" role from the database
             var renterRole = await _userRepository.GetRoleByNameAsync("Renter");
@@ -59,7 +62,6 @@ namespace BookAudioSystem.Services
 
             // Add the user's role to the database
             await _userRepository.AddUserRoleAsync(userRole);
-            await _userRepository.AddUserAsync(user);
 
             return new UserResponseDto
             {
@@ -79,7 +81,7 @@ namespace BookAudioSystem.Services
             }
 
             // Generate JWT token
-            var token = _jwtTokenHelper.GenerateJwtToken(user);
+            var token = _jwtTokenHelper.GenerateToken(user);
 
             // Save token in the database
             user.Token = token;
@@ -90,8 +92,40 @@ namespace BookAudioSystem.Services
                 UserID = user.UserID,
                 Email = user.Email,
                 FullName = user.FullName,
-                Token = token
+                Token = user.Token
             };
+        }
+
+        public async Task<UserResDto> GetUserInfoByEmailAsync(string email)
+        {
+            var user = await _userRepository.GetUserByEmailAsync(email);
+
+            if (user == null)
+            {
+                return null;
+            }
+
+            return new UserResDto
+            {
+                UserId = user.UserID,
+                Email = user.Email,
+                FullName = user.FullName,
+                Address = user.Address,
+                PhoneNumber = user.PhoneNumber,
+                BankName = user.BankName,
+                BankAccountNumber = user.BankAccountNumber,
+                IdentityCard = user.IdentityCard,
+                Province = user.Province,
+                District = user.District,
+                Ward = user.Ward,
+                BirthDate = user.birthDate,
+                Token=user.Token
+            };
+        }
+
+        public Task<UserResDto> GetUserInfoByIdAsync(int userId)
+        {
+            throw new NotImplementedException();
         }
     }
 

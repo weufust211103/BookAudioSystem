@@ -1,4 +1,5 @@
-﻿using RentalBook.BusinessObjects.Models;
+﻿using BookAudioSystem.BusinessObjects.Models;
+using RentalBook.BusinessObjects.Models;
 
 namespace BookAudioSystem.Services.IService
 {
@@ -6,5 +7,9 @@ namespace BookAudioSystem.Services.IService
     {
         Task<UserResponseDto> RegisterAsync(RegisterModel registrationDto);
         Task<UserResponseDto> LoginAsync(LoginModel loginDto);
+
+        Task<UserResDto> GetUserInfoByIdAsync(int userId);
+
+        Task<UserResDto> GetUserInfoByEmailAsync(string email);
     }
 }
