@@ -11,5 +11,7 @@ namespace BookAudioSystem.Services.IService
         Task<UserResDto> GetUserInfoByIdAsync(int userId);
 
         Task<UserResDto> GetUserInfoByEmailAsync(string email);
+
+        Task<bool> ChangeUserRoleToOwnerByEmailAsync(string email);
     }
 }

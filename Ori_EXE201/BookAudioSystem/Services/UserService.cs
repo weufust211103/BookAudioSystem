@@ -95,7 +95,35 @@ namespace BookAudioSystem.Services
                 Token = user.Token
             };
         }
+        public async Task<bool> ChangeUserRoleToOwnerByEmailAsync(string email)
+        {
+            // Find the user by their email
+            var user = await _userRepository.GetUserByEmailAsync(email);
+            if (user == null)
+            {
+                throw new Exception("User not found.");
+            }
 
+            // Find the "Owner" role
+            var ownerRole = await _userRepository.GetRoleByNameAsync("Owner");
+            if (ownerRole == null)
+            {
+                throw new Exception("Owner role not found.");
+            }
+
+            // Remove any existing roles for the user
+            await _userRepository.RemoveUserRolesAsync(user.UserID);
+
+            // Assign the "Owner" role to the user
+            var userRole = new UserRole
+            {
+                UserID = user.UserID,
+                RoleID = ownerRole.RoleID
+            };
+            await _userRepository.AddUserRoleAsync(userRole);
+
+            return true;
+        }
         public async Task<UserResDto> GetUserInfoByEmailAsync(string email)
         {
             var user = await _userRepository.GetUserByEmailAsync(email);

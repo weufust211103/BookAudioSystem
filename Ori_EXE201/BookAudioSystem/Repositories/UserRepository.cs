@@ -43,5 +43,12 @@ namespace BookAudioSystem.Repositories
             _context.Users.Update(user);
             await _context.SaveChangesAsync();
         }
+
+        public async Task RemoveUserRolesAsync(int userId)
+        {
+            var userRoles = await _context.UsersRoles.Where(ur => ur.UserID == userId).ToListAsync();
+            _context.UsersRoles.RemoveRange(userRoles);
+            await _context.SaveChangesAsync();
+        }
     }
 }

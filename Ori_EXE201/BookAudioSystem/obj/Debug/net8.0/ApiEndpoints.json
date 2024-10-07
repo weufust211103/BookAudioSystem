@@ -1,31 +1,51 @@
 [
   {
-    "ContainingType": "BookAudioSystem.Controllers.AuthController",
+    "ContainingType": "BookAudioSystem.Controllers.AuthenticationController",
     "Method": "Login",
-    "RelativePath": "api/Auth/Login",
+    "RelativePath": "api/Authentication/login",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "model",
-        "Type": "BookAudioSystem.BusinessObjects.Models.LoginModel",
+        "Name": "loginModel",
+        "Type": "RentalBook.BusinessObjects.Models.LoginModel",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "BookAudioSystem.Controllers.AuthController",
+    "ContainingType": "BookAudioSystem.Controllers.AuthenticationController",
+    "Method": "GetUserInfo",
+    "RelativePath": "api/Authentication/me",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "BookAudioSystem.BusinessObjects.Models.UserResDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BookAudioSystem.Controllers.AuthenticationController",
     "Method": "Register",
-    "RelativePath": "api/Auth/Register",
+    "RelativePath": "api/Authentication/register",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "model",
-        "Type": "BookAudioSystem.BusinessObjects.Models.RegisterModel",
+        "Name": "registerModel",
+        "Type": "RentalBook.BusinessObjects.Models.RegisterModel",
         "IsRequired": true
       }
     ],
@@ -33,9 +53,9 @@
   },
   {
     "ContainingType": "BookAudioSystem.Controllers.UserController",
-    "Method": "GetUserInfo",
-    "RelativePath": "api/User/GetUserInfo",
-    "HttpMethod": "GET",
+    "Method": "ChangeUserRoleToOwner",
+    "RelativePath": "change-role-to-owner",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
