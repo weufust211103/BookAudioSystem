@@ -13,7 +13,15 @@ namespace BookAudioSystem.Repositories
         {
             _context = context;
         }
+        public async Task<IList<string>> GetUserRolesAsync(int userId)
+        {
+            var userRoles = await _context.UsersRoles
+                .Where(ur => ur.UserID == userId)
+                .Select(ur => ur.Role.RoleName) // Assuming there is a `Role` entity linked
+                .ToListAsync();
 
+            return userRoles;
+        }
         public async Task<User> GetUserByEmailAsync(string email)
         {
             return await _context.Users.FirstOrDefaultAsync(u => u.Email == email);

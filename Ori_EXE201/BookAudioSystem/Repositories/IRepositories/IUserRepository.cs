@@ -10,7 +10,7 @@ namespace BookAudioSystem.Repositories.IRepositories
         Task AddUserRoleAsync(UserRole userRole);
         Task RemoveUserRolesAsync(int userId);
         Task UpdateUserAsync(User user);
-
+        Task<IList<string>> GetUserRolesAsync(int userId);
         Task<User> GetUserByIdAsync(int id);
 
     }

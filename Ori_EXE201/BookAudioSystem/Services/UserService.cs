@@ -80,8 +80,10 @@ namespace BookAudioSystem.Services
                 throw new Exception("Invalid email or password.");
             }
 
+            var roles = await _userRepository.GetUserRolesAsync(user.UserID);
+
             // Generate JWT token
-            var token = _jwtTokenHelper.GenerateToken(user);
+            var token = _jwtTokenHelper.GenerateToken(user, roles);
 
             // Save token in the database
             user.Token = token;

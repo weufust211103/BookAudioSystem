@@ -1,7 +1,12 @@
-﻿namespace BookAudioSystem.BusinessObjects.Entities
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
+
+namespace BookAudioSystem.BusinessObjects.Entities
 {
     public class Book
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int BookID { get; set; }
         public int UserID { get; set; }
         public string Title { get; set; }
