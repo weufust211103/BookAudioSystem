@@ -18,14 +18,17 @@ namespace BookAudioSystem.Services
             _jwtTokenHelper = jwtTokenHelper;
         }
 
+        // Registers a new user in the system
         public async Task<UserResponseDto> RegisterAsync(RegisterModel registrationDto)
         {
+            // Check if the user already exists with the given email
             var existingUser = await _userRepository.GetUserByEmailAsync(registrationDto.Email);
             if (existingUser != null)
             {
                 throw new Exception("User already exists with this email.");
             }
 
+            // Create a new User object with the provided registration details
             var user = new User
             {
                 Email = registrationDto.Email,
@@ -43,6 +46,7 @@ namespace BookAudioSystem.Services
                 Ward = registrationDto.Ward,
                 Token = "default-token",
             };
+
             // Retrieve the "Renter" role from the database
             var renterRole = await _userRepository.GetRoleByNameAsync("Renter");
             if (renterRole == null)
@@ -63,6 +67,7 @@ namespace BookAudioSystem.Services
             // Add the user's role to the database
             await _userRepository.AddUserRoleAsync(userRole);
 
+            // Return the response DTO with the user details
             return new UserResponseDto
             {
                 UserID = user.UserID,
@@ -71,24 +76,29 @@ namespace BookAudioSystem.Services
             };
         }
 
+        // Authenticates a user and generates a JWT token
         public async Task<UserResponseDto> LoginAsync(LoginModel loginDto)
         {
+            // Find the user by their email
             var user = await _userRepository.GetUserByEmailAsync(loginDto.Email);
 
+            // Check if the user exists and the password is correct
             if (user == null || !PasswordHasher.VerifyPassword(loginDto.Password, user.Password))
             {
                 throw new Exception("Invalid email or password.");
             }
 
+            // Get the user's roles
             var roles = await _userRepository.GetUserRolesAsync(user.UserID);
 
             // Generate JWT token
             var token = _jwtTokenHelper.GenerateToken(user, roles);
 
-            // Save token in the database
+            // Save the token in the database
             user.Token = token;
-            await _userRepository.UpdateUserAsync(user); // Add this method in the repository
+            await _userRepository.UpdateUserAsync(user);
 
+            // Return the response DTO with the user details and token
             return new UserResponseDto
             {
                 UserID = user.UserID,
@@ -97,6 +107,8 @@ namespace BookAudioSystem.Services
                 Token = user.Token
             };
         }
+
+        // Changes the role of a user to "Owner" based on their email
         public async Task<bool> ChangeUserRoleToOwnerByEmailAsync(string email)
         {
             // Find the user by their email
@@ -126,15 +138,20 @@ namespace BookAudioSystem.Services
 
             return true;
         }
+
+        // Retrieves user information based on their email
         public async Task<UserResDto> GetUserInfoByEmailAsync(string email)
         {
+            // Find the user by their email
             var user = await _userRepository.GetUserByEmailAsync(email);
 
+            // If the user does not exist, return null
             if (user == null)
             {
                 return null;
             }
 
+            // Create and return the response DTO with the user details
             return new UserResDto
             {
                 UserId = user.UserID,
@@ -149,15 +166,40 @@ namespace BookAudioSystem.Services
                 District = user.District,
                 Ward = user.Ward,
                 BirthDate = user.birthDate,
-                Token=user.Token
+                Token = user.Token
             };
         }
 
-        public Task<UserResDto> GetUserInfoByIdAsync(int userId)
+        // Retrieves user information based on their user ID
+        public async Task<UserResDto> GetUserInfoByIdAsync(int userId)
         {
-            throw new NotImplementedException();
+            // Find the user by their user ID
+            var user = await _userRepository.GetUserByIdAsync(userId);
+
+            // If the user does not exist, return null
+            if (user == null)
+            {
+                return null;
+            }
+
+            // Create and return the response DTO with the user details
+            return new UserResDto
+            {
+                UserId = user.UserID,
+                Email = user.Email,
+                FullName = user.FullName,
+                Address = user.Address,
+                PhoneNumber = user.PhoneNumber,
+                BankName = user.BankName,
+                BankAccountNumber = user.BankAccountNumber,
+                IdentityCard = user.IdentityCard,
+                Province = user.Province,
+                District = user.District,
+                Ward = user.Ward,
+                BirthDate = user.birthDate,
+                Token = user.Token
+            };
         }
     }
 
 }
-

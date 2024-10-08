@@ -5,6 +5,11 @@ using System.Security.Claims;
 
 namespace BookAudioSystem.Controllers
 {
+    /// <summary>
+    /// API endpoints for managing user operations.
+    /// </summary>
+    [ApiController]
+    [Route("api/users")]
     public class UserController : ControllerBase
     {
         private readonly IUserService _userService;
@@ -14,6 +19,10 @@ namespace BookAudioSystem.Controllers
             _userService = userService;
         }
 
+        /// <summary>
+        /// Changes the role of the authenticated user to "Owner".
+        /// </summary>
+        /// <returns>The result of the operation.</returns>
         [Authorize] // Ensure the user is authenticated
         [HttpPost("change-role-to-owner")]
         public async Task<IActionResult> ChangeUserRoleToOwner()

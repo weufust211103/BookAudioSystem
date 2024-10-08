@@ -17,7 +17,11 @@ namespace BookAudioSystem.Controllers
             _bookService = bookService;
         }
 
-        // Book CRUD endpoints
+        /// <summary>
+        /// Get a book by its ID.
+        /// </summary>
+        /// <param name="id">The ID of the book.</param>
+        /// <returns>The book with the specified ID.</returns>
         [HttpGet("{id}")]
         public async Task<IActionResult> GetBook(int id)
         {
@@ -26,9 +30,13 @@ namespace BookAudioSystem.Controllers
             {
                 return NotFound();
             }
-            return Ok(book); 
+            return Ok(book);
         }
 
+        /// <summary>
+        /// Get all books.
+        /// </summary>
+        /// <returns>All books.</returns>
         [HttpGet]
         public async Task<IActionResult> GetAllBooks()
         {
@@ -36,6 +44,11 @@ namespace BookAudioSystem.Controllers
             return Ok(books);
         }
 
+        /// <summary>
+        /// Create a new book.
+        /// </summary>
+        /// <param name="model">The model containing the book details.</param>
+        /// <returns>The created book.</returns>
         [HttpPost]
         [Authorize(Roles = "Owner")]
         public async Task<IActionResult> CreateBook([FromBody] BookModel model)
@@ -44,6 +57,12 @@ namespace BookAudioSystem.Controllers
             return Ok(book);
         }
 
+        /// <summary>
+        /// Update a book by its ID.
+        /// </summary>
+        /// <param name="id">The ID of the book.</param>
+        /// <param name="model">The model containing the updated book details.</param>
+        /// <returns>The updated book.</returns>
         [HttpPut("{id}")]
         [Authorize(Roles = "Owner")]
         public async Task<IActionResult> UpdateBook(int id, [FromBody] BookModel model)
@@ -56,6 +75,11 @@ namespace BookAudioSystem.Controllers
             return Ok(book);
         }
 
+        /// <summary>
+        /// Delete a book by its ID.
+        /// </summary>
+        /// <param name="id">The ID of the book.</param>
+        /// <returns>No content.</returns>
         [HttpDelete("{id}")]
         [Authorize(Roles = "Owner")]
         public async Task<IActionResult> DeleteBook(int id)
@@ -65,10 +89,14 @@ namespace BookAudioSystem.Controllers
             {
                 return NotFound();
             }
-            return Ok();
+            return NoContent();
         }
 
-        // Tag CRUD endpoints
+        /// <summary>
+        /// Get a tag by its ID.
+        /// </summary>
+        /// <param name="tagId">The ID of the tag.</param>
+        /// <returns>The tag with the specified ID.</returns>
         [HttpGet("tags/{tagId}")]
         public async Task<IActionResult> GetTagById(int tagId)
         {
@@ -80,6 +108,11 @@ namespace BookAudioSystem.Controllers
             return Ok(tag);
         }
 
+        /// <summary>
+        /// Create a new tag.
+        /// </summary>
+        /// <param name="model">The model containing the tag details.</param>
+        /// <returns>The created tag.</returns>
         [HttpPost("tag")]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> CreateTag([FromBody] TagModel model)
@@ -88,6 +121,10 @@ namespace BookAudioSystem.Controllers
             return Ok(tag);
         }
 
+        /// <summary>
+        /// Get all tags.
+        /// </summary>
+        /// <returns>All tags.</returns>
         [HttpGet("tags")]
         public async Task<IActionResult> GetTags()
         {
@@ -95,6 +132,12 @@ namespace BookAudioSystem.Controllers
             return Ok(tags);
         }
 
+        /// <summary>
+        /// Update a tag by its ID.
+        /// </summary>
+        /// <param name="tagId">The ID of the tag.</param>
+        /// <param name="tag">The updated tag.</param>
+        /// <returns>No content.</returns>
         [HttpPut("tags/{tagId}")]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> UpdateTag(int tagId, [FromBody] Tag tag)
@@ -104,18 +147,28 @@ namespace BookAudioSystem.Controllers
                 return BadRequest();
             }
             await _bookService.UpdateTagAsync(tag);
-            return Ok();
+            return NoContent();
         }
 
+        /// <summary>
+        /// Delete a tag by its ID.
+        /// </summary>
+        /// <param name="tagId">The ID of the tag.</param>
+        /// <returns>No content.</returns>
         [HttpDelete("tags/{tagId}")]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteTag(int tagId)
         {
             await _bookService.DeleteTagAsync(tagId);
-            return Ok();
+            return NoContent();
         }
 
-        // BookTag management
+        /// <summary>
+        /// Add a tag to a book.
+        /// </summary>
+        /// <param name="bookId">The ID of the book.</param>
+        /// <param name="tagId">The ID of the tag.</param>
+        /// <returns>No content.</returns>
         [HttpPost("{bookId}/tags/{tagId}")]
         public async Task<IActionResult> AddBookTag(int bookId, int tagId)
         {
@@ -123,6 +176,12 @@ namespace BookAudioSystem.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// Remove a tag from a book.
+        /// </summary>
+        /// <param name="bookId">The ID of the book.</param>
+        /// <param name="tagId">The ID of the tag.</param>
+        /// <returns>No content.</returns>
         [HttpDelete("{bookId}/tags/{tagId}")]
         public async Task<IActionResult> RemoveBookTag(int bookId, int tagId)
         {

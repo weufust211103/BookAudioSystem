@@ -45,7 +45,7 @@ namespace BookAudioSystem.Services
         {
             var book = new Book
             {
-                UserID=model.UserId,
+                UserID = model.UserId,
                 Title = model.Title,
                 Description = model.Description,
                 Category = model.Category,
@@ -53,31 +53,31 @@ namespace BookAudioSystem.Services
                 Price = model.Price,
                 Status = true // Active by default
             };
-             // Save the book to the database first
-    await _bookRepository.AddBookAsync(book);
+            // Save the book to the database first
+            await _bookRepository.AddBookAsync(book);
 
-    // Now handle tags
-    foreach (var tagName in model.Tags)
-    {
-        // Check if the tag already exists
-        var tag = await _bookRepository.GetTagByNameAsync(tagName);
-        if (tag == null)
-        {
-            // If the tag does not exist, create a new tag
-            tag = new Tag { TagName = tagName };
-            await _bookRepository.AddTagAsync(tag);
-        }
+            // Now handle tags
+            foreach (var tagName in model.Tags)
+            {
+                // Check if the tag already exists
+                var tag = await _bookRepository.GetTagByNameAsync(tagName);
+                if (tag == null)
+                {
+                    // If the tag does not exist, create a new tag
+                    tag = new Tag { TagName = tagName };
+                    await _bookRepository.AddTagAsync(tag);
+                }
 
-        // Create the BookTag relationship
-        var bookTag = new BookTag
-        {
-            BookID = book.BookID,
-            TagID = tag.TagID
-        };
+                // Create the BookTag relationship
+                var bookTag = new BookTag
+                {
+                    BookID = book.BookID,
+                    TagID = tag.TagID
+                };
 
-        // Save the BookTag to the database
-        await _bookRepository.AddBookTagAsync(bookTag);
-    }
+                // Save the BookTag to the database
+                await _bookRepository.AddBookTagAsync(bookTag);
+            }
             return new BookResponseDto
             {
                 BookID = book.BookID,
@@ -98,7 +98,7 @@ namespace BookAudioSystem.Services
             {
                 return null;
             }
-            if(book.UserID != model.UserId)
+            if (book.UserID != model.UserId)
             {
                 throw new Exception("You don't have permission to edit this book");
             }

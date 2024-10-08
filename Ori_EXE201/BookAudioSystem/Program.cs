@@ -9,10 +9,16 @@ using System.Text;
 using BookAudioSystem.Repositories.IRepositories;
 using BookAudioSystem.Repositories;
 using BookAudioSystem.Helper;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 var jwtSettings = builder.Configuration.GetSection("JwtSettings");
 AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+
+//Add controller and Endpoints
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+
 // Add services to the container.
 builder.Services.AddDbContext<RentalBookDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
@@ -79,6 +85,10 @@ builder.Services.AddSwaggerGen(c =>
             new string[] {}
         }
     });
+
+    var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+    c.IncludeXmlComments(xmlPath);
 });
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
@@ -93,7 +103,10 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI( c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Book Audio System API V1");
+    });
 }
 
 app.UseHttpsRedirection();

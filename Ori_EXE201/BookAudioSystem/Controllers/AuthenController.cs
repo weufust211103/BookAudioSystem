@@ -19,7 +19,11 @@ namespace BookAudioSystem.Controllers
             _userService = userService;
         }
 
-        // POST: api/authentication/register
+        /// <summary>
+        /// Register a new user.
+        /// </summary>
+        /// <param name="registerModel">The registration model.</param>
+        /// <returns>The user response.</returns>
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterModel registerModel)
         {
@@ -40,7 +44,11 @@ namespace BookAudioSystem.Controllers
             }
         }
 
-        // POST: api/authentication/login
+        /// <summary>
+        /// Login with user credentials.
+        /// </summary>
+        /// <param name="loginModel">The login model.</param>
+        /// <returns>The user response.</returns>
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginModel loginModel)
         {
@@ -61,7 +69,12 @@ namespace BookAudioSystem.Controllers
             }
         }
 
+        /// <summary>
+        /// Get user information.
+        /// </summary>
+        /// <returns>The user information.</returns>
         [HttpGet("me")]
+        [Authorize]
         public async Task<ActionResult<UserResDto>> GetUserInfo()
         {
             // Extract the email from the JWT token claims
@@ -84,7 +97,6 @@ namespace BookAudioSystem.Controllers
 
             return Ok(userInfo);
         }
-
     }
 }
 

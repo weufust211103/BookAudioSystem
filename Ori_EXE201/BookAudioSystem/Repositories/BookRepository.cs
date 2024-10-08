@@ -37,9 +37,7 @@ namespace BookAudioSystem.Repositories
         {
             _context.Books.Update(book);
             await _context.SaveChangesAsync();
-        }
-
-        
+        }        
 
         public async Task DeleteBookAsync(Book book)
         {
@@ -56,9 +54,7 @@ namespace BookAudioSystem.Repositories
         {
             return await _context.Tags.FirstOrDefaultAsync(t => t.TagName == tagName);
         }
-
        
-
         public async Task AddTagAsync(Tag tag)
         {
             await _context.Tags.AddAsync(tag);
@@ -103,5 +99,4 @@ namespace BookAudioSystem.Repositories
             }
         }
     }
-
 }
