@@ -456,3 +456,5 @@ D:\FPT_SE_Stu\HK8\EXE201\Ori_EXE201\BookAudioSystem\obj\Debug\net8.0\BookAudioSy
 D:\FPT_SE_Stu\HK8\EXE201\Ori_EXE201\BookAudioSystem\obj\Debug\net8.0\ref\BookAudioSystem.dll
 D:\FPT_SE_Stu\HK8\EXE201\Ori_EXE201\BookAudioSystem\bin\Debug\net8.0\BookAudioSystem.xml
 D:\FPT_SE_Stu\HK8\EXE201\Ori_EXE201\BookAudioSystem\obj\Debug\net8.0\BookAudioSystem.xml
+E:\project\BookAudioSystem\Ori_EXE201\BookAudioSystem\bin\Debug\net8.0\BookAudioSystem.xml
+E:\project\BookAudioSystem\Ori_EXE201\BookAudioSystem\obj\Debug\net8.0\BookAudioSystem.xml

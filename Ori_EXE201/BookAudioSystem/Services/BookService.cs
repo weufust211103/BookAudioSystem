@@ -102,13 +102,48 @@ namespace BookAudioSystem.Services
             {
                 throw new Exception("You don't have permission to edit this book");
             }
+
+            // Step 1: Remove existing tags associated with the book
+            var existingBookTags = book.BookTags.ToList(); // Assuming BookTags is properly loaded
+            foreach (var bookTag in existingBookTags)
+            {
+                await _bookRepository.RemoveBookTagAsync(bookTag.BookID, bookTag.TagID);
+            }
+
+            // Step 2: Update book details
             book.Title = model.Title;
             book.Description = model.Description;
             book.Category = model.Category;
             book.Image = model.Image;
             book.Price = model.Price;
 
+            // Save updated book details to the database
             await _bookRepository.UpdateBookAsync(book);
+
+            // Step 3: Add new tags
+            foreach (var tagName in model.Tags)
+            {
+                // Check if the tag already exists
+                var tag = await _bookRepository.GetTagByNameAsync(tagName);
+                if (tag == null)
+                {
+                    // If the tag does not exist, create a new tag
+                    tag = new Tag { TagName = tagName };
+                    await _bookRepository.AddTagAsync(tag);
+                }
+
+                // Create the new BookTag relationship
+                var bookTag = new BookTag
+                {
+                    BookID = book.BookID,
+                    TagID = tag.TagID
+                };
+
+                // Save the BookTag to the database
+                await _bookRepository.AddBookTagAsync(bookTag);
+            }
+
+            // Step 4: Return updated book data
             return new BookResponseDto
             {
                 BookID = book.BookID,
