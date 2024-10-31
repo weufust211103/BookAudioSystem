@@ -36,13 +36,31 @@ namespace BookAudioSystem.Services
             };
         }
 
-        public async Task<IEnumerable<Book>> GetAllBooksAsync()
+        public async Task<IEnumerable<BookResponseDto>> GetAllBooksAsync()
         {
-            return await _bookRepository.GetAllBooksAsync();
+            var books = await _bookRepository.GetAllBooksAsync();
+
+            return books.Select(book => new BookResponseDto
+            {
+                BookID = book.BookID,
+                Title = book.Title,
+                Description = book.Description,
+                Category = book.Category,
+                Image = book.Image,
+                Price = book.Price,
+                Status = book.Status,
+                UserID = book.UserID,
+                Tags = book.BookTags.Select(bt => bt.Tag.TagName).ToList() 
+            }).ToList();
         }
 
         public async Task<BookResponseDto> CreateBookAsync(BookModel model)
         {
+
+            if (model.Status != "For Sale" && model.Status != "For Rent")
+            {
+                throw new ArgumentException("Invalid status. Status must be either 'For Sale' or 'For Rent'.");
+            }
             var book = new Book
             {
                 UserID = model.UserId,
@@ -51,7 +69,7 @@ namespace BookAudioSystem.Services
                 Category = model.Category,
                 Image = model.Image,
                 Price = model.Price,
-                Status = true // Active by default
+                Status = model.Status // Active by default
             };
             // Save the book to the database first
             await _bookRepository.AddBookAsync(book);
@@ -116,6 +134,7 @@ namespace BookAudioSystem.Services
             book.Category = model.Category;
             book.Image = model.Image;
             book.Price = model.Price;
+            book.Status = model.Status;
 
             // Save updated book details to the database
             await _bookRepository.UpdateBookAsync(book);

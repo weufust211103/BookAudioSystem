@@ -40,5 +40,8 @@ namespace BookAudioSystem.BusinessObjects.Entities
         public ICollection<Book> Books { get; set; }
         public ICollection<Transaction> Transactions { get; set; }
         public Wallet Wallet { get; set; }
+
+        public ICollection<Order> Orders { get; set; } = new List<Order>();
+
     }
 }

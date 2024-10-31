@@ -11,7 +11,7 @@ namespace BookAudioSystem.BusinessObjects.Models
         public string Category { get; set; }
         public string Image { get; set; }
         public decimal Price { get; set; }
-        public bool Status { get; set; }
-
+        public string Status { get; set; }
+        public List<string> Tags { get; set; } // Optional: Include if you want to return tags
     }
 }

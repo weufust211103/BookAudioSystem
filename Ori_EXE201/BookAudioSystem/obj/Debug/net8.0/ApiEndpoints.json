@@ -252,6 +252,64 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "BookAudioSystem.Controllers.OrderController",
+    "Method": "CreateOrder",
+    "RelativePath": "api/Order",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "bookId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookAudioSystem.Controllers.OrderController",
+    "Method": "GetOrderDetail",
+    "RelativePath": "api/Order/{orderId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "orderId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookAudioSystem.Controllers.OrderController",
+    "Method": "GetUserOrders",
+    "RelativePath": "api/Order/my-orders",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookAudioSystem.Controllers.OrderController",
+    "Method": "UpdateOrderDetails",
+    "RelativePath": "api/Order/update-order",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "BookAudioSystem.BusinessObjects.Models.UpdateOrderModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "BookAudioSystem.Controllers.UserController",
     "Method": "ChangeUserRoleToOwner",
     "RelativePath": "api/users/change-role-to-owner",

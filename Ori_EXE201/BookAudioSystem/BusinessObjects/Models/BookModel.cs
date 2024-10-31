@@ -10,8 +10,7 @@ namespace BookAudioSystem.BusinessObjects.Models
         public string Category { get; set; }
         public string? Image { get; set; }
         public decimal Price { get; set; }
-
+        public string Status { get; set; } // "For Sale", "For Rent", etc.
         public List<string> Tags { get; set; }
-
     }
 }

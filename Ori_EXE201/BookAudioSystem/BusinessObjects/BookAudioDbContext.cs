@@ -22,6 +22,8 @@ namespace BookAudioSystem.BusinessObjects
         public DbSet<Transaction> Transactions { get; set; }
         public DbSet<Wallet> Wallets { get; set; }
 
+        public DbSet<Order> Orders { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -92,7 +94,15 @@ namespace BookAudioSystem.BusinessObjects
                 .HasOne(w => w.User)
                 .WithOne(u => u.Wallet)
                 .HasForeignKey<Wallet>(w => w.UserID);
+            modelBuilder.Entity<Order>()
+                .HasOne(o => o.Book)
+                .WithMany(b => b.Orders) // Book has a collection of Orders
+                .HasForeignKey(o => o.BookID);
 
+            modelBuilder.Entity<Order>()
+                .HasOne(o => o.Buyer)
+                .WithMany(u => u.Orders) // User (Buyer) has a collection of Orders
+                .HasForeignKey(o => o.BuyerID);
             // Seed data
             modelBuilder.Entity<Role>().HasData(
                 new Role { RoleID = 1, RoleName = "Admin" },

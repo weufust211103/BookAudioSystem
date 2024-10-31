@@ -14,11 +14,13 @@ namespace BookAudioSystem.BusinessObjects.Entities
         public string Category { get; set; }
         public string Image { get; set; }
         public decimal Price { get; set; }
-        public bool Status { get; set; }
+        public string Status { get; set; }
 
         // Navigation properties
         public User User { get; set; }
         public ICollection<BookTag> BookTags { get; set; }
         public ICollection<Transaction> Transactions { get; set; }
+
+        public ICollection<Order> Orders { get; set; } = new List<Order>();
     }
 }

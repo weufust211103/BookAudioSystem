@@ -6,8 +6,8 @@ namespace BookAudioSystem.Services.IService
     public interface IBookService
     {
         // Book CRUD
-        
-        Task<IEnumerable<Book>> GetAllBooksAsync();
+
+        Task<IEnumerable<BookResponseDto>> GetAllBooksAsync();
         Task<BookResponseDto> CreateBookAsync(BookModel model);
         Task<BookResponseDto> UpdateBookAsync(int id, BookModel model);
         Task<BookResponseDto> GetBookByIdAsync(int id);

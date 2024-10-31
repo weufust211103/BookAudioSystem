@@ -45,8 +45,9 @@ namespace BookAudioSystem.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("numeric");
 
-                    b.Property<bool>("Status")
-                        .HasColumnType("boolean");
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -75,6 +76,39 @@ namespace BookAudioSystem.Migrations
                     b.HasIndex("TagID");
 
                     b.ToTable("BookTags");
+                });
+
+            modelBuilder.Entity("BookAudioSystem.BusinessObjects.Entities.Order", b =>
+                {
+                    b.Property<int>("OrderID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("OrderID"));
+
+                    b.Property<int>("BookID")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("BuyerID")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime>("OrderDate")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<string>("OrderStatus")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("numeric");
+
+                    b.HasKey("OrderID");
+
+                    b.HasIndex("BookID");
+
+                    b.HasIndex("BuyerID");
+
+                    b.ToTable("Orders");
                 });
 
             modelBuilder.Entity("BookAudioSystem.BusinessObjects.Entities.Role", b =>
@@ -149,6 +183,9 @@ namespace BookAudioSystem.Migrations
                         .HasColumnType("integer");
 
                     b.Property<DateTime?>("ReturnDate")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<DateTime?>("SoldDate")
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<DateTime>("TransactionDate")
@@ -245,13 +282,13 @@ namespace BookAudioSystem.Migrations
                             Email = "superadmin@rentalbook.com",
                             FullName = "Super Admin",
                             IdentityCard = "123456789",
-                            Password = "$2a$11$8EC4CvwLNNvrElK6Injd.eQd2bdkJqiMzgHI0RiDeIWuePUYYtbBS",
+                            Password = "$2a$11$K7kKKUCQeNGm7leZpSDr6u4Af/ENMThcseG73dovI60Q72SA28Z0e",
                             PhoneNumber = "+1234567890",
                             Province = "Admin Province",
                             Token = "default_token",
                             Ward = "Admin Ward",
                             birthDate = new DateTime(1979, 12, 31, 17, 0, 0, 0, DateTimeKind.Utc),
-                            createdDate = new DateTime(2024, 10, 3, 3, 15, 36, 756, DateTimeKind.Utc).AddTicks(8901)
+                            createdDate = new DateTime(2024, 10, 30, 15, 40, 34, 363, DateTimeKind.Utc).AddTicks(9947)
                         });
                 });
 
@@ -329,6 +366,25 @@ namespace BookAudioSystem.Migrations
                     b.Navigation("Tag");
                 });
 
+            modelBuilder.Entity("BookAudioSystem.BusinessObjects.Entities.Order", b =>
+                {
+                    b.HasOne("BookAudioSystem.BusinessObjects.Entities.Book", "Book")
+                        .WithMany("Orders")
+                        .HasForeignKey("BookID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BookAudioSystem.BusinessObjects.Entities.User", "Buyer")
+                        .WithMany("Orders")
+                        .HasForeignKey("BuyerID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Book");
+
+                    b.Navigation("Buyer");
+                });
+
             modelBuilder.Entity("BookAudioSystem.BusinessObjects.Entities.Transaction", b =>
                 {
                     b.HasOne("BookAudioSystem.BusinessObjects.Entities.Book", "Book")
@@ -390,6 +446,8 @@ namespace BookAudioSystem.Migrations
                 {
                     b.Navigation("BookTags");
 
+                    b.Navigation("Orders");
+
                     b.Navigation("Transactions");
                 });
 
@@ -406,6 +464,8 @@ namespace BookAudioSystem.Migrations
             modelBuilder.Entity("BookAudioSystem.BusinessObjects.Entities.User", b =>
                 {
                     b.Navigation("Books");
+
+                    b.Navigation("Orders");
 
                     b.Navigation("Transactions");
 
