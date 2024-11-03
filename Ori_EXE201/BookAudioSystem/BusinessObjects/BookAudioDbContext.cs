@@ -85,9 +85,9 @@ namespace BookAudioSystem.BusinessObjects
                 .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Transaction>()
-                .HasOne(t => t.Owner)
+                .HasOne(t => t.Order)
                 .WithMany()
-                .HasForeignKey(t => t.OwnerID)
+                .HasForeignKey(t => t.OrderId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Wallet>()

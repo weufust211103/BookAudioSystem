@@ -200,6 +200,15 @@ namespace BookAudioSystem.Services
                 Token = user.Token
             };
         }
+        public async Task<User> GetUserByIdAsync(int userId)
+        {
+            return await _userRepository.GetUserByIdAsync(userId);
+        }
+
+        public async Task UpdateWalletBalanceAsync(int userId, decimal amount)
+        {
+            await _userRepository.UpdateWalletBalanceAsync(userId, amount);
+        }
     }
 
 }

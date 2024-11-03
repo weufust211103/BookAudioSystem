@@ -60,7 +60,7 @@ namespace BookAudioSystem.Migrations
 
                     b.HasIndex("UserID");
 
-                    b.ToTable("Books");
+                    b.ToTable("Books", (string)null);
                 });
 
             modelBuilder.Entity("BookAudioSystem.BusinessObjects.Entities.BookTag", b =>
@@ -75,7 +75,7 @@ namespace BookAudioSystem.Migrations
 
                     b.HasIndex("TagID");
 
-                    b.ToTable("BookTags");
+                    b.ToTable("BookTags", (string)null);
                 });
 
             modelBuilder.Entity("BookAudioSystem.BusinessObjects.Entities.Order", b =>
@@ -108,7 +108,7 @@ namespace BookAudioSystem.Migrations
 
                     b.HasIndex("BuyerID");
 
-                    b.ToTable("Orders");
+                    b.ToTable("Orders", (string)null);
                 });
 
             modelBuilder.Entity("BookAudioSystem.BusinessObjects.Entities.Role", b =>
@@ -125,7 +125,7 @@ namespace BookAudioSystem.Migrations
 
                     b.HasKey("RoleID");
 
-                    b.ToTable("Roles");
+                    b.ToTable("Roles", (string)null);
 
                     b.HasData(
                         new
@@ -159,16 +159,13 @@ namespace BookAudioSystem.Migrations
 
                     b.HasKey("TagID");
 
-                    b.ToTable("Tags");
+                    b.ToTable("Tags", (string)null);
                 });
 
             modelBuilder.Entity("BookAudioSystem.BusinessObjects.Entities.Transaction", b =>
                 {
-                    b.Property<int>("TransactionID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("TransactionID"));
+                    b.Property<string>("TransactionID")
+                        .HasColumnType("text");
 
                     b.Property<decimal>("Amount")
                         .HasColumnType("numeric");
@@ -179,7 +176,7 @@ namespace BookAudioSystem.Migrations
                     b.Property<DateTime?>("BorrowDate")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<int>("OwnerID")
+                    b.Property<int>("OrderId")
                         .HasColumnType("integer");
 
                     b.Property<DateTime?>("ReturnDate")
@@ -187,6 +184,9 @@ namespace BookAudioSystem.Migrations
 
                     b.Property<DateTime?>("SoldDate")
                         .HasColumnType("timestamp without time zone");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("integer");
 
                     b.Property<DateTime>("TransactionDate")
                         .HasColumnType("timestamp without time zone");
@@ -198,11 +198,11 @@ namespace BookAudioSystem.Migrations
 
                     b.HasIndex("BookID");
 
-                    b.HasIndex("OwnerID");
+                    b.HasIndex("OrderId");
 
                     b.HasIndex("UserID");
 
-                    b.ToTable("Transactions");
+                    b.ToTable("Transactions", (string)null);
                 });
 
             modelBuilder.Entity("BookAudioSystem.BusinessObjects.Entities.User", b =>
@@ -269,7 +269,7 @@ namespace BookAudioSystem.Migrations
 
                     b.HasKey("UserID");
 
-                    b.ToTable("Users");
+                    b.ToTable("Users", (string)null);
 
                     b.HasData(
                         new
@@ -282,13 +282,13 @@ namespace BookAudioSystem.Migrations
                             Email = "superadmin@rentalbook.com",
                             FullName = "Super Admin",
                             IdentityCard = "123456789",
-                            Password = "$2a$11$K7kKKUCQeNGm7leZpSDr6u4Af/ENMThcseG73dovI60Q72SA28Z0e",
+                            Password = "$2a$11$S4nZX95fABV9A2tCdx.hLOD0o3lV4X866TPaKNma1RirlkWFpgZ8u",
                             PhoneNumber = "+1234567890",
                             Province = "Admin Province",
                             Token = "default_token",
                             Ward = "Admin Ward",
                             birthDate = new DateTime(1979, 12, 31, 17, 0, 0, 0, DateTimeKind.Utc),
-                            createdDate = new DateTime(2024, 10, 30, 15, 40, 34, 363, DateTimeKind.Utc).AddTicks(9947)
+                            createdDate = new DateTime(2024, 11, 3, 19, 8, 16, 33, DateTimeKind.Utc).AddTicks(1231)
                         });
                 });
 
@@ -304,7 +304,7 @@ namespace BookAudioSystem.Migrations
 
                     b.HasIndex("RoleID");
 
-                    b.ToTable("UsersRoles");
+                    b.ToTable("UsersRoles", (string)null);
 
                     b.HasData(
                         new
@@ -333,7 +333,7 @@ namespace BookAudioSystem.Migrations
                     b.HasIndex("UserID")
                         .IsUnique();
 
-                    b.ToTable("Wallets");
+                    b.ToTable("Wallets", (string)null);
                 });
 
             modelBuilder.Entity("BookAudioSystem.BusinessObjects.Entities.Book", b =>
@@ -393,9 +393,9 @@ namespace BookAudioSystem.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("BookAudioSystem.BusinessObjects.Entities.User", "Owner")
+                    b.HasOne("BookAudioSystem.BusinessObjects.Entities.Order", "Order")
                         .WithMany()
-                        .HasForeignKey("OwnerID")
+                        .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
@@ -407,7 +407,7 @@ namespace BookAudioSystem.Migrations
 
                     b.Navigation("Book");
 
-                    b.Navigation("Owner");
+                    b.Navigation("Order");
 
                     b.Navigation("User");
                 });

@@ -13,5 +13,6 @@ namespace BookAudioSystem.Repositories.IRepositories
         Task<IList<string>> GetUserRolesAsync(int userId);
         Task<User> GetUserByIdAsync(int id);
 
+        Task UpdateWalletBalanceAsync(int userId, decimal amount);
     }
 }

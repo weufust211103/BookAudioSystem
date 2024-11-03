@@ -1,4 +1,5 @@
-﻿using BookAudioSystem.BusinessObjects.Models;
+﻿using BookAudioSystem.BusinessObjects.Entities;
+using BookAudioSystem.BusinessObjects.Models;
 using RentalBook.BusinessObjects.Models;
 
 namespace BookAudioSystem.Services.IService
@@ -13,5 +14,8 @@ namespace BookAudioSystem.Services.IService
         Task<UserResDto> GetUserInfoByEmailAsync(string email);
 
         Task<bool> ChangeUserRoleToOwnerByEmailAsync(string email);
+
+        Task UpdateWalletBalanceAsync(int userId, decimal amount);
+        Task<User> GetUserByIdAsync(int userId);
     }
 }

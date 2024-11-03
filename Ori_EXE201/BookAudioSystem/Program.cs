@@ -10,6 +10,7 @@ using BookAudioSystem.Repositories.IRepositories;
 using BookAudioSystem.Repositories;
 using BookAudioSystem.Helper;
 using System.Reflection;
+using Net.payOS;
 
 var builder = WebApplication.CreateBuilder(args);
 var jwtSettings = builder.Configuration.GetSection("JwtSettings");
@@ -99,8 +100,16 @@ builder.Services.AddScoped<IBookRepository, BookRepository>();
 builder.Services.AddScoped<IBookService, BookService>();
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 builder.Services.AddScoped<IOrderService, OrderService>();
+builder.Services.AddSingleton<PayOS>(provider =>
+{
+    string clientId = builder.Configuration["PaymentEnvironment:PAYOS_CLIENT_ID"] ?? throw new Exception("Cannot find PAYOS_CLIENT_ID");
+    string apiKey = builder.Configuration["PaymentEnvironment:PAYOS_API_KEY"] ?? throw new Exception("Cannot find PAYOS_API_KEY");
+    string checksumKey = builder.Configuration["PaymentEnvironment:PAYOS_CHECKSUM_KEY"] ?? throw new Exception("Cannot find PAYOS_CHECKSUM_KEY");
 
+    return new PayOS(clientId, apiKey, checksumKey);
+});
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

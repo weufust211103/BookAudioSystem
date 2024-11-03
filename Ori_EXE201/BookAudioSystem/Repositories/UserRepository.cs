@@ -62,5 +62,14 @@ namespace BookAudioSystem.Repositories
             _context.UsersRoles.RemoveRange(userRoles);
             await _context.SaveChangesAsync();
         }
+
+        public async Task UpdateWalletBalanceAsync(int userId, decimal amount)
+        {
+            var wallet = await _context.Wallets.FirstOrDefaultAsync(w => w.UserID == userId);
+            if (wallet == null) throw new Exception("Wallet not found");
+
+            wallet.Balance += amount; // Adjust the amount as needed
+            await _context.SaveChangesAsync();
+        }
     }
 }
