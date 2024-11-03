@@ -3,7 +3,7 @@
     public class PaymentRequest
     {
         public int UserId { get; set; }
-        public decimal Amount { get; set; }
+        public int OrderId { get; set; }
     }
 
 }
