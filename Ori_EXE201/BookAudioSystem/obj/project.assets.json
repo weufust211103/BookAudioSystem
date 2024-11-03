@@ -3142,24 +3142,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\weufu\\.nuget\\packages\\": {},
-    "E:\\Shared\\NuGetPackages": {}
+    "C:\\Users\\VST.Jinkiro\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\project\\BookAudioSystem\\Ori_EXE201\\BookAudioSystem\\BookAudioSystem.csproj",
+      "projectUniqueName": "D:\\FPT_SE_Stu\\HK8\\EXE201\\Ori_EXE201\\BookAudioSystem\\BookAudioSystem.csproj",
       "projectName": "BookAudioSystem",
-      "projectPath": "E:\\project\\BookAudioSystem\\Ori_EXE201\\BookAudioSystem\\BookAudioSystem.csproj",
-      "packagesPath": "C:\\Users\\weufu\\.nuget\\packages\\",
-      "outputPath": "E:\\project\\BookAudioSystem\\Ori_EXE201\\BookAudioSystem\\obj\\",
+      "projectPath": "D:\\FPT_SE_Stu\\HK8\\EXE201\\Ori_EXE201\\BookAudioSystem\\BookAudioSystem.csproj",
+      "packagesPath": "C:\\Users\\VST.Jinkiro\\.nuget\\packages\\",
+      "outputPath": "D:\\FPT_SE_Stu\\HK8\\EXE201\\Ori_EXE201\\BookAudioSystem\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "E:\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\weufu\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\VST.Jinkiro\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3251,7 +3246,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
