@@ -23,6 +23,8 @@ namespace BookAudioSystem.Services.IService
         // BookTag management
         Task AddBookTagAsync(int bookId, int tagId);
         Task RemoveBookTagAsync(int bookId, int tagId);
+
+        Task<int?> GetOwnerIdByBookIdAsync(int bookId);
     }
 
 }

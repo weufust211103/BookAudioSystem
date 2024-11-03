@@ -53,6 +53,11 @@ namespace BookAudioSystem.Services
                 Tags = book.BookTags.Select(bt => bt.Tag.TagName).ToList() 
             }).ToList();
         }
+        public async Task<int?> GetOwnerIdByBookIdAsync(int bookId)
+        {
+            var book = await _bookRepository.GetBookByIdAsync(bookId);
+            return book?.UserID;
+        }
 
         public async Task<BookResponseDto> CreateBookAsync(BookModel model)
         {
