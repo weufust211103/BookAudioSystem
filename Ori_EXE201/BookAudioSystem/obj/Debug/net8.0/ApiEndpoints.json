@@ -310,6 +310,38 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "BookAudioSystem.Controllers.PayOsController",
+    "Method": "ReceiveWebhook",
+    "RelativePath": "api/PayOs/hook",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "webhookBody",
+        "Type": "Net.payOS.Types.WebhookType",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookAudioSystem.Controllers.PayOsController",
+    "Method": "CreatePaymentLink",
+    "RelativePath": "api/PayOs/payOs",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "BookAudioSystem.BusinessObjects.Models.PaymentRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "BookAudioSystem.Controllers.UserController",
     "Method": "ChangeUserRoleToOwner",
     "RelativePath": "api/users/change-role-to-owner",

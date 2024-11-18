@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\FPT_SE_Stu\\HK8\\EXE201\\Ori_EXE201\\BookAudioSystem\\BookAudioSystem.csproj": {}
+    "E:\\project\\BookAudioSystem\\Ori_EXE201\\BookAudioSystem\\BookAudioSystem.csproj": {}
   },
   "projects": {
-    "D:\\FPT_SE_Stu\\HK8\\EXE201\\Ori_EXE201\\BookAudioSystem\\BookAudioSystem.csproj": {
+    "E:\\project\\BookAudioSystem\\Ori_EXE201\\BookAudioSystem\\BookAudioSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\FPT_SE_Stu\\HK8\\EXE201\\Ori_EXE201\\BookAudioSystem\\BookAudioSystem.csproj",
+        "projectUniqueName": "E:\\project\\BookAudioSystem\\Ori_EXE201\\BookAudioSystem\\BookAudioSystem.csproj",
         "projectName": "BookAudioSystem",
-        "projectPath": "D:\\FPT_SE_Stu\\HK8\\EXE201\\Ori_EXE201\\BookAudioSystem\\BookAudioSystem.csproj",
-        "packagesPath": "C:\\Users\\VST.Jinkiro\\.nuget\\packages\\",
-        "outputPath": "D:\\FPT_SE_Stu\\HK8\\EXE201\\Ori_EXE201\\BookAudioSystem\\obj\\",
+        "projectPath": "E:\\project\\BookAudioSystem\\Ori_EXE201\\BookAudioSystem\\BookAudioSystem.csproj",
+        "packagesPath": "C:\\Users\\weufu\\.nuget\\packages\\",
+        "outputPath": "E:\\project\\BookAudioSystem\\Ori_EXE201\\BookAudioSystem\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "E:\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\VST.Jinkiro\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\weufu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -106,7 +110,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.404/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

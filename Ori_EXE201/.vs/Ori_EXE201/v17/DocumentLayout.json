@@ -1,7 +1,52 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\FPT_SE_Stu\\HK8\\EXE201\\Ori_EXE201\\",
-  "Documents": [],
+  "WorkspaceRootPath": "E:\\project\\BookAudioSystem\\Ori_EXE201\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{EDA9E540-F44C-46D5-B6C0-FF4825E606DE}|BookAudioSystem\\BookAudioSystem.csproj|e:\\project\\bookaudiosystem\\ori_exe201\\bookaudiosystem\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{EDA9E540-F44C-46D5-B6C0-FF4825E606DE}|BookAudioSystem\\BookAudioSystem.csproj|solutionrelative:bookaudiosystem\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EDA9E540-F44C-46D5-B6C0-FF4825E606DE}|BookAudioSystem\\BookAudioSystem.csproj|e:\\project\\bookaudiosystem\\ori_exe201\\bookaudiosystem\\controllers\\authencontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EDA9E540-F44C-46D5-B6C0-FF4825E606DE}|BookAudioSystem\\BookAudioSystem.csproj|solutionrelative:bookaudiosystem\\controllers\\authencontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\project\\BookAudioSystem\\Ori_EXE201\\BookAudioSystem\\Migrations\\20241118193555_DB.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:BookAudioSystem\\Migrations\\20241118193555_DB.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EDA9E540-F44C-46D5-B6C0-FF4825E606DE}|BookAudioSystem\\BookAudioSystem.csproj|e:\\project\\bookaudiosystem\\ori_exe201\\bookaudiosystem\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EDA9E540-F44C-46D5-B6C0-FF4825E606DE}|BookAudioSystem\\BookAudioSystem.csproj|solutionrelative:bookaudiosystem\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EDA9E540-F44C-46D5-B6C0-FF4825E606DE}|BookAudioSystem\\BookAudioSystem.csproj|e:\\project\\bookaudiosystem\\ori_exe201\\bookaudiosystem\\services\\iservice\\itransactionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EDA9E540-F44C-46D5-B6C0-FF4825E606DE}|BookAudioSystem\\BookAudioSystem.csproj|solutionrelative:bookaudiosystem\\services\\iservice\\itransactionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EDA9E540-F44C-46D5-B6C0-FF4825E606DE}|BookAudioSystem\\BookAudioSystem.csproj|e:\\project\\bookaudiosystem\\ori_exe201\\bookaudiosystem\\services\\iservice\\iorderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EDA9E540-F44C-46D5-B6C0-FF4825E606DE}|BookAudioSystem\\BookAudioSystem.csproj|solutionrelative:bookaudiosystem\\services\\iservice\\iorderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EDA9E540-F44C-46D5-B6C0-FF4825E606DE}|BookAudioSystem\\BookAudioSystem.csproj|e:\\project\\bookaudiosystem\\ori_exe201\\bookaudiosystem\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EDA9E540-F44C-46D5-B6C0-FF4825E606DE}|BookAudioSystem\\BookAudioSystem.csproj|solutionrelative:bookaudiosystem\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EDA9E540-F44C-46D5-B6C0-FF4825E606DE}|BookAudioSystem\\BookAudioSystem.csproj|e:\\project\\bookaudiosystem\\ori_exe201\\bookaudiosystem\\services\\iservice\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EDA9E540-F44C-46D5-B6C0-FF4825E606DE}|BookAudioSystem\\BookAudioSystem.csproj|solutionrelative:bookaudiosystem\\services\\iservice\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EDA9E540-F44C-46D5-B6C0-FF4825E606DE}|BookAudioSystem\\BookAudioSystem.csproj|e:\\project\\bookaudiosystem\\ori_exe201\\bookaudiosystem\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EDA9E540-F44C-46D5-B6C0-FF4825E606DE}|BookAudioSystem\\BookAudioSystem.csproj|solutionrelative:bookaudiosystem\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EDA9E540-F44C-46D5-B6C0-FF4825E606DE}|BookAudioSystem\\BookAudioSystem.csproj|e:\\project\\bookaudiosystem\\ori_exe201\\bookaudiosystem\\businessobjects\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EDA9E540-F44C-46D5-B6C0-FF4825E606DE}|BookAudioSystem\\BookAudioSystem.csproj|solutionrelative:bookaudiosystem\\businessobjects\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EDA9E540-F44C-46D5-B6C0-FF4825E606DE}|BookAudioSystem\\BookAudioSystem.csproj|e:\\project\\bookaudiosystem\\ori_exe201\\bookaudiosystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EDA9E540-F44C-46D5-B6C0-FF4825E606DE}|BookAudioSystem\\BookAudioSystem.csproj|solutionrelative:bookaudiosystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,19 +54,158 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 10,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ITransactionService.cs",
+              "DocumentMoniker": "E:\\project\\BookAudioSystem\\Ori_EXE201\\BookAudioSystem\\Services\\IService\\ITransactionService.cs",
+              "RelativeDocumentMoniker": "BookAudioSystem\\Services\\IService\\ITransactionService.cs",
+              "ToolTip": "E:\\project\\BookAudioSystem\\Ori_EXE201\\BookAudioSystem\\Services\\IService\\ITransactionService.cs",
+              "RelativeToolTip": "BookAudioSystem\\Services\\IService\\ITransactionService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T19:19:22.597Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "IOrderService.cs",
+              "DocumentMoniker": "E:\\project\\BookAudioSystem\\Ori_EXE201\\BookAudioSystem\\Services\\IService\\IOrderService.cs",
+              "RelativeDocumentMoniker": "BookAudioSystem\\Services\\IService\\IOrderService.cs",
+              "ToolTip": "E:\\project\\BookAudioSystem\\Ori_EXE201\\BookAudioSystem\\Services\\IService\\IOrderService.cs",
+              "RelativeToolTip": "BookAudioSystem\\Services\\IService\\IOrderService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T19:19:20.339Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "E:\\project\\BookAudioSystem\\Ori_EXE201\\BookAudioSystem\\Services\\UserService.cs",
+              "RelativeDocumentMoniker": "BookAudioSystem\\Services\\UserService.cs",
+              "ToolTip": "E:\\project\\BookAudioSystem\\Ori_EXE201\\BookAudioSystem\\Services\\UserService.cs",
+              "RelativeToolTip": "BookAudioSystem\\Services\\UserService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T19:16:56.073Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "IUserService.cs",
+              "DocumentMoniker": "E:\\project\\BookAudioSystem\\Ori_EXE201\\BookAudioSystem\\Services\\IService\\IUserService.cs",
+              "RelativeDocumentMoniker": "BookAudioSystem\\Services\\IService\\IUserService.cs",
+              "ToolTip": "E:\\project\\BookAudioSystem\\Ori_EXE201\\BookAudioSystem\\Services\\IService\\IUserService.cs",
+              "RelativeToolTip": "BookAudioSystem\\Services\\IService\\IUserService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T19:16:55.023Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "E:\\project\\BookAudioSystem\\Ori_EXE201\\BookAudioSystem\\Repositories\\UserRepository.cs",
+              "RelativeDocumentMoniker": "BookAudioSystem\\Repositories\\UserRepository.cs",
+              "ToolTip": "E:\\project\\BookAudioSystem\\Ori_EXE201\\BookAudioSystem\\Repositories\\UserRepository.cs",
+              "RelativeToolTip": "BookAudioSystem\\Repositories\\UserRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T19:16:42.541Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AuthenController.cs",
+              "DocumentMoniker": "E:\\project\\BookAudioSystem\\Ori_EXE201\\BookAudioSystem\\Controllers\\AuthenController.cs",
+              "RelativeDocumentMoniker": "BookAudioSystem\\Controllers\\AuthenController.cs",
+              "ToolTip": "E:\\project\\BookAudioSystem\\Ori_EXE201\\BookAudioSystem\\Controllers\\AuthenController.cs",
+              "RelativeToolTip": "BookAudioSystem\\Controllers\\AuthenController.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAiwCcAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T19:16:11.056Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "E:\\project\\BookAudioSystem\\Ori_EXE201\\BookAudioSystem\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "BookAudioSystem\\Controllers\\UserController.cs",
+              "ToolTip": "E:\\project\\BookAudioSystem\\Ori_EXE201\\BookAudioSystem\\Controllers\\UserController.cs",
+              "RelativeToolTip": "BookAudioSystem\\Controllers\\UserController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T19:16:08.311Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "User.cs",
+              "DocumentMoniker": "E:\\project\\BookAudioSystem\\Ori_EXE201\\BookAudioSystem\\BusinessObjects\\Entities\\User.cs",
+              "RelativeDocumentMoniker": "BookAudioSystem\\BusinessObjects\\Entities\\User.cs",
+              "ToolTip": "E:\\project\\BookAudioSystem\\Ori_EXE201\\BookAudioSystem\\BusinessObjects\\Entities\\User.cs",
+              "RelativeToolTip": "BookAudioSystem\\BusinessObjects\\Entities\\User.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T19:15:52.783Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "E:\\project\\BookAudioSystem\\Ori_EXE201\\BookAudioSystem\\appsettings.json",
+              "RelativeDocumentMoniker": "BookAudioSystem\\appsettings.json",
+              "ToolTip": "E:\\project\\BookAudioSystem\\Ori_EXE201\\BookAudioSystem\\appsettings.json",
+              "RelativeToolTip": "BookAudioSystem\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-11-18T18:56:13.986Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\project\\BookAudioSystem\\Ori_EXE201\\BookAudioSystem\\Program.cs",
+              "RelativeDocumentMoniker": "BookAudioSystem\\Program.cs",
+              "ToolTip": "E:\\project\\BookAudioSystem\\Ori_EXE201\\BookAudioSystem\\Program.cs",
+              "RelativeToolTip": "BookAudioSystem\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T18:50:49.182Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "20241118193555_DB.cs",
+              "DocumentMoniker": "E:\\project\\BookAudioSystem\\Ori_EXE201\\BookAudioSystem\\Migrations\\20241118193555_DB.cs",
+              "RelativeDocumentMoniker": "BookAudioSystem\\Migrations\\20241118193555_DB.cs",
+              "ToolTip": "E:\\project\\BookAudioSystem\\Ori_EXE201\\BookAudioSystem\\Migrations\\20241118193555_DB.cs",
+              "RelativeToolTip": "BookAudioSystem\\Migrations\\20241118193555_DB.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T19:35:55.292Z",
+              "EditorCaption": ""
             }
           ]
         }
